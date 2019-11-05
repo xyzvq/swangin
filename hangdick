@@ -1,0 +1,48 @@
+import random, sys
+
+### TO DO: use a file for the word list.
+WORD_LIST = [ 'f' , 'sh' , 'fee' , 'suck']
+
+GUESS_WORD = []
+HANG_WORD = random.choice(WORD_LIST)
+LENGTH_WORD = len(HANG_WORD)
+ALPHA = "a b c d e g h i j k l m n o p q r s t u v w x y z".split()
+LETTER_STORAGE = []
+
+def CONCEAL ():
+    for element in HANG_WORD:
+        GUESS_WORD.append("-")
+    print("Word to guess: {0}".format(" ".join(GUESS_WORD)))
+
+def GUESSING():
+    GUESS_COUNT = 0
+
+    while GUESS_COUNT < 5:
+
+        guess = input("pick a letter\n").lower
+
+        if not guess in ALPHA:
+            print ("enter a fucking LETTER!")
+
+        elif guess in LETTER_STORAGE:
+            print ("you already guess that LETTER dumb dumb\n")
+
+        elif LETTER_STORAGE.append(guess):
+            if guess in HANG_WORD:
+                print ("damn rights")
+            for i in range(0, LENGTH_WORD):
+                    if HANG_WORD [i] == guess:
+                        GUESS_WORD[i] = guess
+                    print (GUESS_WORD)
+                    if not '-' in GUESS_WORD:
+                        print("You won!")
+                        print("Game Over!")
+        else:
+                print("The letter is not in the word. Try Again!")
+                guess_taken += 1
+                if guess_taken == 5:
+                    print(" You lost :<! The secret word was",         HANG_WORD)
+
+
+CONCEAL()
+GUESSING()
